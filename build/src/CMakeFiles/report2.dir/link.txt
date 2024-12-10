@@ -1,1 +1,0 @@
-/usr/bin/cc -fPIC -g -shared -Wl,-soname,libreport2.so -o libreport2.so CMakeFiles/report2.dir/simulate.c.o 
