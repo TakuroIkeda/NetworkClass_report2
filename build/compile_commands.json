@@ -1,12 +1,12 @@
 [
 {
-  "directory": "/home/ikeda/中野研究室/dev/NetworkClass_report2/build/src",
-  "command": "/usr/bin/cc -Dreport2_EXPORTS -I/home/ikeda/中野研究室/dev/NetworkClass_report2/include -g -fPIC -o CMakeFiles/report2.dir/simulate.c.o -c /home/ikeda/中野研究室/dev/NetworkClass_report2/src/simulate.c",
-  "file": "/home/ikeda/中野研究室/dev/NetworkClass_report2/src/simulate.c"
+  "directory": "/usr/local/src/dev/GitHub/NetworkClass_report2/build/src",
+  "command": "/usr/bin/cc -Dreport2_EXPORTS -I/usr/local/src/dev/GitHub/NetworkClass_report2/include -g -fPIC -o CMakeFiles/report2.dir/simulate.c.o -c /usr/local/src/dev/GitHub/NetworkClass_report2/src/simulate.c",
+  "file": "/usr/local/src/dev/GitHub/NetworkClass_report2/src/simulate.c"
 },
 {
-  "directory": "/home/ikeda/中野研究室/dev/NetworkClass_report2/build/app",
-  "command": "/usr/bin/cc  -I/home/ikeda/中野研究室/dev/NetworkClass_report2/include -g -o CMakeFiles/a.out.dir/main.c.o -c /home/ikeda/中野研究室/dev/NetworkClass_report2/app/main.c",
-  "file": "/home/ikeda/中野研究室/dev/NetworkClass_report2/app/main.c"
+  "directory": "/usr/local/src/dev/GitHub/NetworkClass_report2/build/app",
+  "command": "/usr/bin/cc  -I/usr/local/src/dev/GitHub/NetworkClass_report2/include -g -o CMakeFiles/a.out.dir/main.c.o -c /usr/local/src/dev/GitHub/NetworkClass_report2/app/main.c",
+  "file": "/usr/local/src/dev/GitHub/NetworkClass_report2/app/main.c"
 }
 ]
