@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/a.out.dir/main.c.o -o a.out  -Wl,-rpath,/usr/local/src/dev/networks/report2/build/src ../src/libreport2.so -lm 

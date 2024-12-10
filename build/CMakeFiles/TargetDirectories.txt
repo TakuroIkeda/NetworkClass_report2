@@ -1,0 +1,8 @@
+/usr/local/src/dev/networks/report2/build/CMakeFiles/edit_cache.dir
+/usr/local/src/dev/networks/report2/build/CMakeFiles/rebuild_cache.dir
+/usr/local/src/dev/networks/report2/build/src/CMakeFiles/report2.dir
+/usr/local/src/dev/networks/report2/build/src/CMakeFiles/edit_cache.dir
+/usr/local/src/dev/networks/report2/build/src/CMakeFiles/rebuild_cache.dir
+/usr/local/src/dev/networks/report2/build/app/CMakeFiles/a.out.dir
+/usr/local/src/dev/networks/report2/build/app/CMakeFiles/edit_cache.dir
+/usr/local/src/dev/networks/report2/build/app/CMakeFiles/rebuild_cache.dir
