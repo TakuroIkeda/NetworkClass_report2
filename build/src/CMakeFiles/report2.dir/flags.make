@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -Dreport2_EXPORTS
 
-C_INCLUDES = -I/usr/local/src/dev/networks/report2/include
+C_INCLUDES = -I/home/ikeda/中野研究室/dev/NetworkClass_report2/include
 
 C_FLAGS = -g -fPIC
 

@@ -1,4 +1,4 @@
-# Install script for directory: /usr/local/src/dev/networks/report2/app
+# Install script for directory: /home/ikeda/中野研究室/dev/NetworkClass_report2/app
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

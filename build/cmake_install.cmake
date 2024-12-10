@@ -1,4 +1,4 @@
-# Install script for directory: /usr/local/src/dev/networks/report2
+# Install script for directory: /home/ikeda/中野研究室/dev/NetworkClass_report2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,8 +44,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/usr/local/src/dev/networks/report2/build/src/cmake_install.cmake")
-  include("/usr/local/src/dev/networks/report2/build/app/cmake_install.cmake")
+  include("/home/ikeda/中野研究室/dev/NetworkClass_report2/build/src/cmake_install.cmake")
+  include("/home/ikeda/中野研究室/dev/NetworkClass_report2/build/app/cmake_install.cmake")
 
 endif()
 
@@ -57,5 +57,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/usr/local/src/dev/networks/report2/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ikeda/中野研究室/dev/NetworkClass_report2/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
