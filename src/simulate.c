@@ -34,12 +34,14 @@ void reset(node_inf *node, cell_inf *cell)
     }
 }
 
-void set_poisson_distribution(node_inf *node)
+void set_poisson_distribution(node_inf *node, cell_inf *cell)
 {
     double r = (double)rand() / (RAND_MAX + 1.0);
     node[0].start_time = -(1 / lambda) * log(r);
     r = (double)rand() / (RAND_MAX + 1.0);
     node[0].holding_time = -(1 / mu) * log(r);
+    node[0].apper_coordinate = ((double)rand() / RAND_MAX) * length * cell_num;
+    node[0].x = node[0].apper_coordinate;
 
     for (int h = 1; h < node_num; h++)
     {
@@ -50,6 +52,23 @@ void set_poisson_distribution(node_inf *node)
         node[h].apper_coordinate = ((double)rand() / RAND_MAX) * length * cell_num;
         node[h].x = node[h].apper_coordinate;
         node[h].stay_cell_num = (int)node[h].apper_coordinate / 500;
+    }
+
+    for (int h = 0; h < node_num; h++)
+    {
+        node[h].stay_cell_num = search_cell_number(node, cell, h);
+        // printf("hello");
+    }
+}
+
+int search_cell_number(node_inf *node, cell_inf *cell, int num)
+{
+    for (int i = 0; i < cell_num; i++)
+    {
+        if (cell[i].start_cell_coordinate < node[num].x && node[num].x < cell[i].end_cell_coordinate)
+        {
+            return i;
+        }
     }
 }
 
@@ -63,19 +82,20 @@ void simulate(node_inf *node, cell_inf *cell, double time)
             if (node[h].holding_time <= 0)
             {
                 node[h].ready = 0;
-                server[node[h].service_server_num].usingflag = 0;
+                cell[node[h].stay_cell_num].server[node[h].service_server_num].usingflag = 0;
             }
+            move_node(node, cell, h);
         }
     }
 
-    int not_using_server_num = server_num + 1;
     for (int h = 0; h < node_num; h++)
     {
+        int not_using_server_num = server_num + 1;
         if (node[h].start_time - time <= 0.001 && node[h].service_done == 0)
         {
             for (int i = 0; i < server_num; i++)
             {
-                if (server[i].usingflag == 0)
+                if (cell[node[h].stay_cell_num].server[i].usingflag == 0)
                 {
                     not_using_server_num = i;
                 }
@@ -90,13 +110,55 @@ void simulate(node_inf *node, cell_inf *cell, double time)
             {
                 node[h].ready = 1;
                 node[h].service_server_num = not_using_server_num;
-                server[not_using_server_num].usingflag = 1;
+                cell[node[h].stay_cell_num].server[not_using_server_num].usingflag = 1;
                 node[h].service_done = 1;
             }
         }
     }
     int s;
     s = 0;
+}
+
+void move_node(node_inf *node, cell_inf *cell, int num)
+{
+    if (node[num].ready == 0)
+    {
+        return;
+    }
+
+    node[num].x += dt * v;
+    if (node[num].x > cell[node[num].stay_cell_num].end_cell_coordinate)
+    {
+        if (node[num].stay_cell_num == cell_num - 1)
+        {
+            int add_coordinate = node[num].x - cell[node[num].stay_cell_num].end_cell_coordinate;
+            node[num].stay_cell_num = 0;
+            node[num].x = 0;
+            node[num].x += add_coordinate;
+        }
+        else
+        {
+            node[num].stay_cell_num++;
+        }
+        int not_using_server_num = server_num + 1;
+        for (int i = 0; i < server_num; i++)
+        {
+            if (cell[node[num].stay_cell_num].server[i].usingflag == 0)
+            {
+                not_using_server_num = i;
+            }
+        }
+
+        if (not_using_server_num > server_num)
+        {
+            node[num].block_flag = 1;
+        }
+        else
+        {
+            node[num].service_server_num = not_using_server_num;
+            cell[node[num].stay_cell_num].server[not_using_server_num].usingflag = 1;
+        }
+    }
 }
 
 void plot(node_inf *node)
@@ -134,7 +196,7 @@ void plot(node_inf *node)
 
     // printf("block_count = %d\n", blocking_node_counter);
     // printf("service_count = %d\n", service_done_flag);
-    fprintf(fp, "%lf\t%lf\n", (double)((double)blocking_node_counter / (double)service_done_flag), Ps);
+    fprintf(fp, "%lf\n", (double)((double)blocking_node_counter / (double)service_done_flag));
     fclose(fp);
 }
 

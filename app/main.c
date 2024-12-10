@@ -50,7 +50,7 @@ int main(void)
 
         srand(seed + k);
 
-        set_poisson_distribution(node);
+        set_poisson_distribution(node, cell);
 
         if (node[node_num - 1].start_time < TIME)
         {

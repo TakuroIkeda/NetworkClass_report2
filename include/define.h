@@ -1,14 +1,14 @@
 #ifndef DEFINE_H
 #define DEFINE_H
 
-#define server_num 4
+#define server_num 5
 #define TIME 10000
-#define lambda 1
+#define lambda 0.01
 #define node_num 10300
 #define mu 0.05
 #define dt 0.1
 #define seed 1101
-#define roop_count 100
+#define roop_count 1
 #define length 500
 #define cell_num 10
 #define v 10
