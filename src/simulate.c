@@ -26,7 +26,7 @@ void reset(node_inf *node, cell_inf *cell)
     for (int h = 0; h < cell_num; h++)
     {
         cell[h].start_cell_coordinate = length * h;
-        cell[h].end_cell_coordinate = length * (h + 1) + 0.00000001;
+        cell[h].end_cell_coordinate = length * (h + 1);
         for (int i = 0; i < server_num; i++)
         {
             cell[h].server[i].usingflag = 0;
