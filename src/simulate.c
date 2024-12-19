@@ -115,8 +115,6 @@ void simulate(node_inf *node, cell_inf *cell, double time)
             }
         }
     }
-    int s;
-    s = 0;
 }
 
 void move_node(node_inf *node, cell_inf *cell, int num)
@@ -171,13 +169,16 @@ void plot(node_inf *node)
     int blocking_node_counter = 0, service_done_flag = 0;
     for (int h = 0; h < node_num; h++)
     {
-        if (node[h].block_flag == 1)
+        if (node[h].start_time > check_start_time)
         {
-            blocking_node_counter++;
-        }
-        if (node[h].service_done == 1)
-        {
-            service_done_flag++;
+            if (node[h].block_flag == 1)
+            {
+                blocking_node_counter++;
+            }
+            if (node[h].service_done == 1)
+            {
+                service_done_flag++;
+            }
         }
     }
 

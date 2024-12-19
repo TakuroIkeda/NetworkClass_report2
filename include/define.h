@@ -1,17 +1,18 @@
 #ifndef DEFINE_H
 #define DEFINE_H
 
-#define server_num 5
+#define server_num 7
 #define TIME 10000
-#define lambda 0.01
-#define node_num 10300
+#define lambda 0.1
+#define node_num 2030
 #define mu 0.05
 #define dt 0.1
-#define seed 1101
-#define roop_count 1
+#define seed 1211
+#define roop_count 100
 #define length 500
 #define cell_num 10
 #define v 10
+#define check_start_time 2000
 
 typedef struct
 {
