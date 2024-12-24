@@ -3,12 +3,12 @@
 
 #define server_num 5
 #define TIME 10000
-#define lambda 0.01
-#define node_num 10300
+#define lambda 0.05
+#define node_num 1030
 #define mu 0.05
 #define dt 0.1
 #define seed 1101
-#define roop_count 1
+#define roop_count 10
 #define length 500
 #define cell_num 10
 #define v 10
