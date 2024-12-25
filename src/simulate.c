@@ -90,18 +90,19 @@ void simulate(node_inf *node, cell_inf *cell, double time)
 
     for (int h = 0; h < node_num; h++)
     {
-        int not_using_server_num = server_num + 1;
         if (node[h].start_time - time <= 0.001 && node[h].service_done == 0)
         {
+            int not_using_server_num = -1;
             for (int i = 0; i < server_num; i++)
             {
                 if (cell[node[h].stay_cell_num].server[i].usingflag == 0)
                 {
                     not_using_server_num = i;
+                    break; // 最初に見つけた空いているサーバーでループを終了
                 }
             }
 
-            if (not_using_server_num > server_num)
+            if (not_using_server_num == -1)
             {
                 node[h].block_flag = 1;
                 node[h].service_done = 1;
@@ -138,16 +139,17 @@ void move_node(node_inf *node, cell_inf *cell, int num)
         {
             node[num].stay_cell_num++;
         }
-        int not_using_server_num = server_num + 1;
+        int not_using_server_num = -1;
         for (int i = 0; i < server_num; i++)
         {
             if (cell[node[num].stay_cell_num].server[i].usingflag == 0)
             {
                 not_using_server_num = i;
+                break; // 最初に見つけた空いているサーバーでループを終了
             }
         }
 
-        if (not_using_server_num > server_num)
+        if (not_using_server_num == -1)
         {
             node[num].block_flag = 1;
         }

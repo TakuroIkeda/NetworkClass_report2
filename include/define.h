@@ -3,8 +3,8 @@
 
 #define server_num 7
 #define TIME 10000
-#define lambda 0.1
-#define node_num 2030
+#define lambda 0.05
+#define node_num 1030
 #define mu 0.05
 #define dt 0.1
 #define seed 1211
