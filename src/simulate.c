@@ -8,6 +8,8 @@
 #include "define.h"
 #include "simulate.h"
 
+// ブランチのテスト
+
 void reset(node_inf *node, cell_inf *cell)
 {
     for (int h = 0; h < node_num; h++)
